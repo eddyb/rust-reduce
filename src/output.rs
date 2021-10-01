@@ -144,6 +144,7 @@ impl TargetFileWorker {
         eprintln!("{} bytes...", reduced_file.len());
 
         match Command::new("rustfmt")
+            .arg("--edition=2018")
             .stdout(if self.file == OsStr::new("-") {
                     Stdio::inherit()
                 } else {
